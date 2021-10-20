@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/layout/activity_lista_videos.xml" value="0.3663949275362319" />
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/layout/activity_main.xml" value="0.3663949275362319" />
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/layout/aula1.xml" value="0.3663949275362319" />
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/layout/aula2.xml" value="0.3663949275362319" />
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/layout/aula3.xml" value="0.3663949275362319" />
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/layout/aula4.xml" value="0.3663949275362319" />
+        <entry key="..\:/Faculdade/5Semestre/Projeto/fabricaV/app/src/main/res/layout/item_lista_videos.xml" value="0.3663949275362319" />
         <entry key="..\:/Murilo/Desktop/FabricaV/fabricaV/app/src/main/res/layout/activity_lista_videos.xml" value="0.25" />
         <entry key="..\:/Murilo/Desktop/FabricaV/fabricaV/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Murilo/Desktop/FabricaV/fabricaV/app/src/main/res/layout/item_lista_videos.xml" value="0.2957427536231884" />
