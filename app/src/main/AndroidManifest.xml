@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Treinela">
+
         <activity
             android:name=".TelaInicio"
             android:exported="true" >
@@ -21,7 +22,15 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            
+
+        </activity>
+        <activity
+            android:name=".TelaCadastro"
+            android:label="Cadastro"
+            android:exported="true"
+            android:parentActivityName=".TelaInicio">
+
+
         </activity>
 
         <activity
