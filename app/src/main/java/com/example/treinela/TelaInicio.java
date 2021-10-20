@@ -2,18 +2,24 @@ package com.example.treinela;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    Button btnCadastro;
+public class TelaInicio extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicio);
+    }
 
+    public void btnCadastrarClick(View view){
+        Intent intent = new Intent(TelaInicio.this, TelaCadastro.class);
+        startActivity(intent);
     }
 
 }
