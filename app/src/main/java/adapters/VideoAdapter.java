@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +15,7 @@ import java.util.ArrayList;
 
 import holders.VideoHolder;
 import models.Video;
+import player.PlayerVideo;
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoHolder> {
 
@@ -49,10 +49,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoHolder> {
             @Override
             public void onClick(View v) {
                 String link = videos.get(pos).getLink();
-
-                /*Intent intent = new Intent(this, *NOME DA ACTIVITY*.class);
+                String descricao = videos.get(pos).getDescricao();
+                Intent intent;
+                 intent = new Intent(v.getContext(), PlayerVideo.class);
                 intent.putExtra("link",link);
-                startActivity(intent);*/
+                intent.putExtra("descricao", descricao);
+                v.getContext().startActivity(intent);
             }
         });
     }
