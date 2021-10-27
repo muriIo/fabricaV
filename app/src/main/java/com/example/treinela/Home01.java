@@ -2,7 +2,11 @@ package com.example.treinela;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import listaVideos.ListaVideos;
 
 public class Home01 extends AppCompatActivity {
 
@@ -11,5 +15,10 @@ public class Home01 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home01);
         getSupportActionBar().setHomeButtonEnabled(true);
+    }
+
+    public void btnAulaClick(View view){
+        Intent intent = new Intent(this, ListaVideos.class);
+        startActivity(intent);
     }
 }

@@ -52,6 +52,7 @@
                     android:id="@+id/btnCurso01"
                     android:layout_width="348dp"
                     android:layout_height="326dp"
+                    android:onClick="btnAulaClick"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/linguagem_python_1024x579" />
 
