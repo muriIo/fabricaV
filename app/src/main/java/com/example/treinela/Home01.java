@@ -10,5 +10,6 @@ public class Home01 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home01);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 }

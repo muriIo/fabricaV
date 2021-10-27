@@ -7,43 +7,51 @@
     tools:context=".TelaInicio">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="413dp"
-        android:layout_height="388dp"
-        android:layout_marginTop="-120dp"
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/treinela_logotype_black" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-120dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/tim_gouw_scwvhutqca4_unsplash" />
-
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:text="Já tenho uma conta"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Bem-vindos ao TREINELA, seu local de aprendizado de programação que cabe na palma de sua mão!"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
-        android:id="@+id/btnCadastro"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnHomeLogin"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:onClick="btnCadastrarClick"
-        android:text="CADASTRE AQUI"
+        android:layout_marginTop="44dp"
+        android:onClick="btnFazerLoginHomeClick"
+        android:text="FAZER LOGIN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/btnHomeCriarConta"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="btnCadastrarClick"
+        android:text="CRIAR CONTA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHomeLogin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,10 +15,16 @@ public class TelaInicio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicio);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     public void btnCadastrarClick(View view){
         Intent intent = new Intent(TelaInicio.this, TelaCadastro.class);
+        startActivity(intent);
+    }
+
+    public void btnFazerLoginHomeClick(View view){
+        Intent intent = new Intent(this, Login02.class);
         startActivity(intent);
     }
 
