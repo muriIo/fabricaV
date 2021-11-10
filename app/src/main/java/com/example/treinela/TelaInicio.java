@@ -16,6 +16,7 @@ public class TelaInicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicio);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().hide();
     }
 
     public void btnCadastrarClick(View view){

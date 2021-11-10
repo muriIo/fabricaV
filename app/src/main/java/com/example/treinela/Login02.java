@@ -12,6 +12,7 @@ public class Login02 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login02);
+        getSupportActionBar().hide();
     }
 
     public void btnLogar(View view){
