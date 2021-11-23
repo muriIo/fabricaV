@@ -21,7 +21,7 @@ public class TelaCadastro extends AppCompatActivity {
 
     int id = 0;
     User user;
-    TextView textCel, textCPF,textSenha, textConfSenha, textEmail, textNome, textView3;
+    TextView textCel, textCPF,textSenha, textConfSenha, textEmail, textNome; //,textView3;
     ProgressDialog dialog;
 
     @Override
@@ -36,7 +36,13 @@ public class TelaCadastro extends AppCompatActivity {
         textConfSenha = findViewById(R.id.textConfSenha);
         textNome = findViewById(R.id.textNome);
         textEmail = findViewById(R.id.textEmail);
-        textView3 = findViewById(R.id.textView3);
+        //textView3 = findViewById(R.id.textView3);
+
+        if(getIntent().hasExtra("id")){
+            //Editando um usuario
+            id = getIntent().getIntExtra("id", 0);
+            new UsuarioAPI("GET").execute("Curso/" + id, "");
+        }
 
        // if(getIntent().hasExtra("id")){
        //     //Editando um usuario
@@ -45,26 +51,28 @@ public class TelaCadastro extends AppCompatActivity {
        // }
     }
 
-    //public void carregarCampos(){
-        //textCel.setText(user.getcel());
-       // textCPF.setText(user.getcpf());
-      //  textSenha.setText(user.getpassword());
-      //  textNome.setText(user.getDuracao());
-      //  textEmail.setText(user.getDuracao());
+    public void carregarCampos(){
+        textCel.setText(user.getCel());
+        textCPF.setText(user.getCpf());
+        textSenha.setText(user.getPassword());
+        textNome.setText(user.getName());
+        textEmail.setText(user.getEmail());
       //  textView3.setText(user.getDuracao());
-   // }
+    }
 
     public void btnFinalizarCadastro(View v){
-       // if(id >0){ //editar
-        //    user.setnome(textNome.getText().toString());
-         //   user.setduracao(Integer.parseInt(textDuracao.getText().toString()));
-         //   user.setvalor(Integer.parseInt(textValor.getText().toString()));
+        if(id >0){ //editar
+            user.setName(textNome.getText().toString());
+            user.setCel(textNome.getText().toString());
+            user.setPassword(textNome.getText().toString());
+            user.setEmail(textNome.getText().toString());
+            user.setCpf(textNome.getText().toString());
 
-          //  new CursoAPI("PUT").execute("user/" + id, User.parseJson(user));
-       // }
-       // else{
+
+            new UsuarioAPI("PUT").execute("user/" + id, User.parseJson(user));
+        }
+        else{
             //inserir
-
 
             user = new User();
             user.setName(textNome.getText().toString());
@@ -76,8 +84,8 @@ public class TelaCadastro extends AppCompatActivity {
             //user.setId(0);
             new UsuarioAPI("POST").execute("user", User.parseJson(user));
 
-        //}
-
+        }
+        dialog.dismiss();
         Intent intent = new Intent(this, Login02.class);
         startActivity(intent);
     }
@@ -95,7 +103,7 @@ public class TelaCadastro extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-            String data = ServiceAPI.getService(strings[0], metodo, strings[1]);
+            String data = ServiceApi.getService(strings[0], metodo, strings[1], "");
             return data;
         }
 
