@@ -61,8 +61,40 @@ public class ServiceApi {
                 e.printStackTrace();
             }
         }
+        else if (method == "DELETE") {
+            try {
+                URL url = new URL(reqUrl);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod(method);
+                InputStream in = new BufferedInputStream(conn.getInputStream());
+                return "OK";
+            } catch (Exception e) {
+                Log.e("Service Api", "Exception: " + e.getMessage());
+            }
+        }
+        else if(method == "PUT") {
+            try {
+                URL url = new URL(reqUrl);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestProperty("Content-Type", "application/json");
+                conn.setRequestProperty("Accept", "application/json");
+                conn.setRequestMethod(method);
+                OutputStream out = conn.getOutputStream();
+                byte[] input = data.getBytes("utf-8");
+                out.write(input, 0, input.length);
+                int responseCode = conn.getResponseCode();
+                if (responseCode == HttpsURLConnection.HTTP_OK)
+                    return "OK";
+                return "Erro";
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return "";
     }
+
     private static String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
@@ -83,3 +115,5 @@ public class ServiceApi {
         return sb.toString();
     }
 }
+
+
