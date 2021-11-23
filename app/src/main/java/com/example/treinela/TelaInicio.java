@@ -2,15 +2,10 @@ package com.example.treinela;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 
 public class TelaInicio extends AppCompatActivity {
 
@@ -21,7 +16,7 @@ public class TelaInicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicio);
         getSupportActionBar().setHomeButtonEnabled(true);
-
+        getSupportActionBar().hide();
     }
 
     public void btnCadastrarClick(View view){
@@ -33,7 +28,5 @@ public class TelaInicio extends AppCompatActivity {
         Intent intent = new Intent(this, Login02.class);
         startActivity(intent);
     }
-
-
 
 }

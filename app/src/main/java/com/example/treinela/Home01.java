@@ -15,6 +15,7 @@ public class Home01 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home01);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().hide();
     }
 
     public void btnAulaClick(View view){

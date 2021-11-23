@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import adapters.VideoAdapter;
 import models.Video;
 import services.ServiceApi;
+import services.Session;
 
 public class ListaVideos extends AppCompatActivity {
 
@@ -60,6 +61,7 @@ public class ListaVideos extends AppCompatActivity {
 
     public class VideoApi extends AsyncTask<String,String,String>{
         private String metodo;
+        private Session session;
 
         public VideoApi(String metodo){
             this.metodo = metodo;
@@ -73,7 +75,9 @@ public class ListaVideos extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-            String data = ServiceApi.getService(strings[0], metodo, strings[1]);
+            session = new Session(ListaVideos.this);
+            String token = session.getToken();
+            String data = ServiceApi.getService(strings[0], metodo, strings[1],token);
             return data;
         }
 

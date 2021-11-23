@@ -14,9 +14,10 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 public class ServiceApi {
-    private final static String url = "https://api-treinela.herokuapp.com/";
+    private final static String url = "https://api-treinela.herokuapp.com";
 
-    public static String getService(String dataSet, String method, String data) {
+
+    public static String getService(String dataSet, String method, String data, String token) {
         String reqUrl = url + dataSet;
         if (method == "GET") {
             String response = null;
@@ -24,7 +25,7 @@ public class ServiceApi {
                 URL url = new URL(reqUrl);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod(method);
-                conn.addRequestProperty("Authorization", "Bearer ");
+                conn.setRequestProperty("Authorization", token);
                 InputStream in = new BufferedInputStream(conn.getInputStream());
                 response = convertStreamToString(in);
             } catch (Exception e) {
@@ -42,12 +43,19 @@ public class ServiceApi {
                 conn.setRequestProperty("Content-Type", "application/json");
                 conn.setRequestProperty("Accept", "application/json");
                 conn.setRequestMethod(method);
+                if(token!=""){
+                    conn.setRequestProperty("Authorization", token);
+                }
                 OutputStream out = conn.getOutputStream();
                 byte[] input = data.getBytes("utf-8");
                 out.write(input, 0, input.length);
                 int responseCode= conn.getResponseCode();
-                if(responseCode == HttpsURLConnection.HTTP_CREATED)
-                    return "OK";
+                if(responseCode == HttpsURLConnection.HTTP_CREATED){
+                    InputStream in = new BufferedInputStream(conn.getInputStream());
+                    return convertStreamToString(in);
+                }else if(responseCode == HttpsURLConnection.HTTP_UNAUTHORIZED){
+                    return "401";
+                }
                 return "Erro";
             } catch (Exception e) {
                 e.printStackTrace();
