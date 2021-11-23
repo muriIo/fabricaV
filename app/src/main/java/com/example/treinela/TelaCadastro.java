@@ -36,7 +36,6 @@ public class TelaCadastro extends AppCompatActivity {
         textConfSenha = findViewById(R.id.textConfSenha);
         textNome = findViewById(R.id.textNome);
         textEmail = findViewById(R.id.textEmail);
-        //textView3 = findViewById(R.id.textView3);
 
         if(getIntent().hasExtra("id")){
             //Editando um usuario
@@ -44,11 +43,6 @@ public class TelaCadastro extends AppCompatActivity {
             new UsuarioAPI("GET").execute("Curso/" + id, "");
         }
 
-       // if(getIntent().hasExtra("id")){
-       //     //Editando um usuario
-       //     id = getIntent().getIntExtra("id", 0);
-        //    new TelaCadastro().TreinellaAPI("GET").execute("user/" + id, "");
-       // }
     }
 
     public void carregarCampos(){
@@ -107,21 +101,6 @@ public class TelaCadastro extends AppCompatActivity {
             return data;
         }
 
-        //@Override
-        //protected void onPostExecute (String s){
-         //   super.onPostExecute(s);
-          //  if(metodo == "GET"){
-          //      curso = Curso.parseOneObject(s);
-                //carregarCampos();
-           //     dialog.dismiss();
-          //  }
-          //  else if (s == "OK"){
-          //      dialog.dismiss();
-          //      Toast.makeText(TelaCadastro.this, "Executado com sucesso!", Toast.LENGTH_SHORT).show();
-           //     finish();
-           // }
-
-       // }
     }
 
 

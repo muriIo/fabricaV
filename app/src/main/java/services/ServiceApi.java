@@ -14,7 +14,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 public class ServiceApi {
-    private final static String url = "https://api-treinela.herokuapp.com";
+    private final static String url = "https://api-treinela.herokuapp.com/";
 
 
     public static String getService(String dataSet, String method, String data, String token) {

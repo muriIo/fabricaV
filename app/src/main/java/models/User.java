@@ -78,11 +78,11 @@ public class User {
     public static String parseJson(User user){
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("Nome", user.getName());
-            jsonObject.put("Cel", user.getCel());
-            jsonObject.put("Password", user.getPassword());
-            jsonObject.put("CPF", user.getCpf());
-            jsonObject.put("Email", user.getEmail());
+            jsonObject.put("name", user.getName());
+            jsonObject.put("cel", user.getCel());
+            jsonObject.put("password", user.getPassword());
+            jsonObject.put("cpf", user.getCpf());
+            jsonObject.put("email", user.getEmail());
             return jsonObject.toString();
         }
         catch (Exception ex){
@@ -94,11 +94,11 @@ public class User {
         try {
             User user = new User();
             JSONObject obj = new JSONObject(json);
-            user.setName(obj.getString("Nome"));
-            user.setCel(obj.getString("Cel"));
-            user.setPassword(obj.getString("Password"));
-            user.setCpf(obj.getString("CPF"));
-            user.setEmail(obj.getString("Email"));
+            user.setName(obj.getString("name"));
+            user.setCel(obj.getString("cel"));
+            user.setPassword(obj.getString("password"));
+            user.setCpf(obj.getString("cpf"));
+            user.setEmail(obj.getString("email"));
             user.setId(obj.getInt("id"));
 
             return user;
@@ -115,11 +115,11 @@ public class User {
             for (int i = 0; i < array.length(); i++) {
                 User user = new User();
                 JSONObject obj = array.getJSONObject(i);
-                user.setName(obj.getString("Nome"));
-                user.setCel(obj.getString("Cel"));
-                user.setPassword(obj.getString("Password"));
-                user.setCpf(obj.getString("CPF"));
-                user.setEmail(obj.getString("Email"));
+                user.setName(obj.getString("name"));
+                user.setCel(obj.getString("cel"));
+                user.setPassword(obj.getString("password"));
+                user.setCpf(obj.getString("cpf"));
+                user.setEmail(obj.getString("email"));
                 user.setId(obj.getInt("id"));
                 users.add(user);
             }
