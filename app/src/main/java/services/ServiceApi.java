@@ -14,7 +14,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 public class ServiceApi {
-    private final static String url = "https://616f4917715a630017b39c1a.mockapi.io/api/v1/";
+    private final static String url = "https://api-treinela.herokuapp.com/";
 
     public static String getService(String dataSet, String method, String data) {
         String reqUrl = url + dataSet;
@@ -24,6 +24,7 @@ public class ServiceApi {
                 URL url = new URL(reqUrl);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod(method);
+                conn.addRequestProperty("Authorization", "Bearer ");
                 InputStream in = new BufferedInputStream(conn.getInputStream());
                 response = convertStreamToString(in);
             } catch (Exception e) {
