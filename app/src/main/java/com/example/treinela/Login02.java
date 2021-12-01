@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.auth0.android.jwt.Claim;
 import com.auth0.android.jwt.JWT;
 
@@ -48,7 +49,7 @@ public class Login02 extends AppCompatActivity {
         try {
             json.put("email", txtEmail.getText().toString());
             json.put("password", txtSenha.getText().toString());
-            new LoginAPI("POST",Login02.this).execute("/auth/login", json.toString());
+            new LoginAPI("POST",Login02.this).execute("auth/login", json.toString());
         }catch(Exception e){
             e.printStackTrace();
         }

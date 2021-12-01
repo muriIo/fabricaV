@@ -12,6 +12,8 @@ import android.view.View;
 
 import com.example.treinela.R;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import adapters.VideoAdapter;
@@ -43,7 +45,8 @@ public class ListaVideos extends AppCompatActivity {
     }
 
     private void buscarVideos(){
-        new VideoApi("GET").execute("videos","");
+        JSONObject json = new JSONObject();
+        new VideoApi("GET").execute("videos",json.toString());
     }
 
     public void setupRecyclerVideo(){
