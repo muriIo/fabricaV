@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class User {
 
-    private int Id;
+    private String Id;
     private String Name;
     private String Cel;
     private String Password;
@@ -15,7 +15,7 @@ public class User {
     private String Email;
     private String Type;
 
-    public User(int id, String name, String cel, String password, String cpf, String email , String type) {
+    public User(String id, String name, String cel, String password, String cpf, String email , String type) {
         Id = id;
         Name = name;
         Cel = cel;
@@ -29,11 +29,11 @@ public class User {
 
     }
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         Id = id;
     }
 
@@ -106,7 +106,7 @@ public class User {
             user.setPassword(obj.getString("password"));
             user.setCpf(obj.getString("cpf"));
             user.setEmail(obj.getString("email"));
-            user.setId(obj.getInt("id"));
+            user.setId(obj.getString("_id"));
             user.setType(obj.getString("type"));
 
             return user;
@@ -128,7 +128,7 @@ public class User {
                 user.setPassword(obj.getString("password"));
                 user.setCpf(obj.getString("cpf"));
                 user.setEmail(obj.getString("email"));
-                user.setId(obj.getInt("id"));
+                user.setId(obj.getString("_id"));
                 user.setType(obj.getString("type"));
                 users.add(user);
             }

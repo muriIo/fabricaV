@@ -6,11 +6,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Video {
-    private int id;
+    private String id;
     private String descricao;
     private String link;
 
-    public Video(int id, String descricao, String link) {
+    public Video(String id, String descricao, String link) {
         this.id = id;
         this.descricao = descricao;
         this.link = link;
@@ -20,11 +20,11 @@ public class Video {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -47,7 +47,7 @@ public class Video {
     public static String parseJson(Video video){
         JSONObject obj = new JSONObject();
         try{
-            obj.put("descricao",video.getDescricao());
+            obj.put("description",video.getDescricao());
             obj.put("link",video.getLink());
 
             return obj.toString();
@@ -57,7 +57,7 @@ public class Video {
     }
 
     public static ArrayList<Video> parseObject(String json){
-        ArrayList<Video> videos = new ArrayList<>();
+        ArrayList<models.Video> videos = new ArrayList<>();
         try{
             JSONArray array = new JSONArray(json);
 
@@ -66,9 +66,9 @@ public class Video {
 
                 JSONObject obj = array.getJSONObject(i);
 
-                video.setDescricao(obj.getString("descricao"));
+                video.setDescricao(obj.getString("description"));
                 video.setLink(obj.getString("link"));
-                video.setId(obj.getInt("id"));
+                video.setId(obj.getString("_id"));
 
                 videos.add(video);
             }

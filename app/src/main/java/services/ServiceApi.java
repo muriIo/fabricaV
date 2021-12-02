@@ -24,10 +24,21 @@ public class ServiceApi {
             try {
                 URL url = new URL(reqUrl);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                if(token!=""){
+                    conn.setRequestProperty("Authorization", "Bearer " + token);
+                }
+                conn.setRequestProperty("Content-Type", "application/json");
+                conn.setRequestProperty("Accept", "application/json");
                 conn.setRequestMethod(method);
-                conn.setRequestProperty("Authorization", token);
-                InputStream in = new BufferedInputStream(conn.getInputStream());
-                response = convertStreamToString(in);
+                int responseCode = conn.getResponseCode();
+
+                if(responseCode == HttpsURLConnection.HTTP_OK){
+                    InputStream in = new BufferedInputStream(conn.getInputStream());
+                    return convertStreamToString(in);
+                }else if(responseCode == HttpsURLConnection.HTTP_UNAUTHORIZED){
+                    return "401";
+                }
+                return "Erro";
             } catch (Exception e) {
                 Log.e("Service Api", "Exception: " + e.getMessage());
             }
@@ -42,10 +53,10 @@ public class ServiceApi {
                 conn.setDoInput(true);
                 conn.setRequestProperty("Content-Type", "application/json");
                 conn.setRequestProperty("Accept", "application/json");
-                conn.setRequestMethod(method);
                 if(token!=""){
-                    conn.setRequestProperty("Authorization", token);
+                    conn.setRequestProperty("Authorization","Bearer " + token);
                 }
+                conn.setRequestMethod(method);
                 OutputStream out = conn.getOutputStream();
                 byte[] input = data.getBytes("utf-8");
                 out.write(input, 0, input.length);
@@ -65,6 +76,11 @@ public class ServiceApi {
             try {
                 URL url = new URL(reqUrl);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                if(token!=""){
+                    conn.setRequestProperty("Authorization","Bearer " + token);
+                }
+                conn.setRequestProperty("Content-Type", "application/json");
+                conn.setRequestProperty("Accept", "application/json");
                 conn.setRequestMethod(method);
                 InputStream in = new BufferedInputStream(conn.getInputStream());
                 return "OK";
@@ -80,6 +96,9 @@ public class ServiceApi {
                 conn.setDoInput(true);
                 conn.setRequestProperty("Content-Type", "application/json");
                 conn.setRequestProperty("Accept", "application/json");
+                if(token!=""){
+                    conn.setRequestProperty("Authorization","Bearer " + token);
+                }
                 conn.setRequestMethod(method);
                 OutputStream out = conn.getOutputStream();
                 byte[] input = data.getBytes("utf-8");

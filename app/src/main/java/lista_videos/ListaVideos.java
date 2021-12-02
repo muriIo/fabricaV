@@ -1,4 +1,4 @@
-package listaVideos;
+package lista_videos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -8,23 +8,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Toast;
 
+import com.example.treinela.Login02;
 import com.example.treinela.R;
+import models.*;
+import adapters.*;
+import services.*;
 
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
-import adapters.VideoAdapter;
-import models.Video;
-import services.ServiceApi;
-import services.Session;
 
 public class ListaVideos extends AppCompatActivity {
 
     ProgressDialog dialog;
-    ArrayList<Video> listaVideos;
+    ArrayList<models.Video> listaVideos;
     RecyclerView recyclerVideos;
     VideoAdapter videoAdapter;
 
@@ -46,7 +45,7 @@ public class ListaVideos extends AppCompatActivity {
 
     private void buscarVideos(){
         JSONObject json = new JSONObject();
-        new VideoApi("GET").execute("videos",json.toString());
+        new VideoApi("GET").execute("video",json.toString());
     }
 
     public void setupRecyclerVideo(){
@@ -88,9 +87,17 @@ public class ListaVideos extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            listaVideos = Video.parseObject(s);
+            if(s!="Erro" && s!="401"){
+                listaVideos = Video.parseObject(s);
 
-            setupRecyclerVideo();
+                setupRecyclerVideo();
+            }else{
+                if(s=="401"){
+                    Toast.makeText(ListaVideos.this, "Não autorizado, logue novamente.", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(ListaVideos.this, "Ocorreu um erro", Toast.LENGTH_SHORT).show();
+                }
+            }
 
             dialog.dismiss();
         }

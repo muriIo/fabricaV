@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="listaVideos.ListaVideos">
+    tools:context="lista_videos.ListaVideos">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerVideos"
